@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NutriChef</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="icon" type="image/png" href="static/img/favicon-32x32.png" />
+  </head>
+  <body>
+    <header></header>
+    <nav>
+      <a onclick="showSection('receitas')"><i class="fas fa-utensils"></i> Receitas</a>
+      <a onclick="showSection('compartilhar-receitas')"><i class="fas fa-clipboard"></i> Adicionar Receitas</a>
+      <a onclick="showSection('conta')"><i class="fas fa-user"></i> Conta</a>
+    </nav>
+
+    <div class="container">
+      <section id="receitas" class="recipes">
+        <h2>Receitas</h2>
+        <div class="search-bar">
+          <input type="text" id="search-input" placeholder="Pesquisar Receita..." oninput="filterRecipes()" />
+        </div>
+        <div class="recipe-list" id="recipe-list">
+          <!-- As receitas serão carregadas aqui -->
+        </div>
+      </section>
+      <section id="compartilhar-receitas" class="share-recipes">
+        <h2>Compartilhar Receita</h2>
+        <form class="recipe-form" onsubmit="submitRecipe(event)">
+          <input type="text" id="recipe-name" name="recipe-name" placeholder="Nome da Receita" required />
+          <textarea id="recipe-description" name="recipe-description" placeholder="Descrição da Receita" required></textarea>
+          <div class="form-group">
+            <textarea id="recipe-ingredients" name="recipe-ingredients" placeholder="Digite seus ingredientes" required></textarea>
+          </div>
+          <div class="recipe-ingredients"></div>
+          <textarea id="recipe-steps" name="recipe-steps" placeholder="Modo de Preparo" required></textarea><br />
+          <div class="form-group">
+                        <!-- Adicione este campo no formulário de adicionar receita -->
+                        <input type="url" id="recipe-image-url" name="recipe-image-url" placeholder="URL da imagem da receita" />
+            <div id="recipe-image">
+              <img id="recipe-image-preview" src="" alt="Preview da Receita" style="display:none;" />
+              <button type="button" id="remove-image" style="display:none;">Excluir Imagem</button>
+            </div>
+          </div>
+          <button type="submit" id="Enviar-Receita">Enviar Receita</button>
+        </form>
+      </section>
+
+        <!-- Botão para criar receita -->
+      <!--<div class="create-recipe-container">
+          <button type="button" class="create-recipe-button" onclick="createRecipeFromIngredients()">Criar Receita</button>
+        </div>
+      </section>-->  
+
+      <section id="conta" class="contact">
+        <h2>Minha Conta</h2>
+        <div class="account-info">
+          <p>
+            <strong>Nome:</strong> <span id="account-name"></span>
+          </p>
+          <p>
+            <strong>Email:</strong> <span id="account-email"></span>
+          </p>
+        </div>
+        <button class="form-button" onclick="logout()">Logout</button>
+      </section>
+
+      <section id="detalhes-receita" class="recipe-details">
+        <h2>Detalhes da Receita</h2>
+        <div id="recipe-detail" class="recipe-detail">
+          <!-- Detalhes da receita serão carregados aqui -->
+        </div>
+        <button class="form-button-detail" onclick="showSection('receitas')"><i class="fas fa-arrow-left"></i> Retornar as receitas</button>
+      </section>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 NutriChef. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>

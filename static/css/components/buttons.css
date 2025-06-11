@@ -1,0 +1,46 @@
+button,
+.form-button,
+.remove-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-image: linear-gradient(to right, var(--primary-color), var(--hover-color));
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover,
+.form-button:hover,
+.remove-button:hover {
+    background-image: linear-gradient(to right, var(--hover-color), var(--primary-color));
+    box-shadow: 0 6px 8px rgba(223, 117, 117, 0.15);
+}
+
+.remove-button {
+    background-color: #d84315;
+    color: #fff;
+    margin-top: 10px;
+
+}
+
+.remove-button:hover {
+    background-color: var(--hover-color);
+}
+
+
+#Edit-Buttons{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    align-items: baseline;
+}
+
+#Botão-RecipeCard{
+    display:flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+
