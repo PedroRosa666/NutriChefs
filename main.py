@@ -15,6 +15,7 @@ def connect_db():
         database="NutriChefBD"
     )
 
+#Mudar acima para o nome do banco de dados que você criou no PostgreSQL
 
 # Rota para a página inicial
 @app.route('/')
